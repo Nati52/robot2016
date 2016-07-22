@@ -1,0 +1,9 @@
+-classpath 'C:\\Users\\BlairRobot\\IdeaProjects\\robot2016\\build\\classes\\main;C:\\Users\\BlairRobot\\IdeaProjects\\robot2016\\build\\resources\\main;C:\\Users\\BlairRobot\\IdeaProjects\\449-central-repo\\lib\\navx_frc.jar;C:\\Users\\BlairRobot\\.gradle\\caches\\modules-2\\files-2.1\\edu.wpi.first.wpilib.networktables.java\\NetworkTables\\3.0.0-SNAPSHOT\\f58f03ec93979596fa034cecdff2a09d46c1d511\\NetworkTables-3.0.0-SNAPSHOT-desktop.jar;C:\\Users\\BlairRobot\\.gradle\\caches\\modules-2\\files-2.1\\edu.wpi.first.wpilib.networktables.java\\NetworkTables\\3.0.0-SNAPSHOT\\888386f5fab04eca019c181b5c91fb867cbec50\\NetworkTables-3.0.0-SNAPSHOT-arm.jar;C:\\Users\\BlairRobot\\.gradle\\caches\\modules-2\\files-2.1\\edu.wpi.first.wpilibj\\wpilibJavaFinal\\0.1.0-SNAPSHOT\\d96fae64813e67572426102e6615d3d5526f7dfe\\wpilibJavaFinal-0.1.0-SNAPSHOT.jar;C:\\Users\\BlairRobot\\wpilib\\java\\current\\lib\\NetworkTables.jar;C:\\Users\\BlairRobot\\wpilib\\java\\current\\lib\\WPILib.jar;C:\\Users\\BlairRobot\\IdeaProjects\\449-central-repo\\build\\libs\\449-central-repo.jar;C:\\Users\\BlairRobot\\.gradle\\caches\\modules-2\\files-2.1\\org.json\\json\\20151123\\1675d5c1142000dedd6627a73af26a8b885ef0e1\\json-20151123.jar'
+-d 'C:\\Users\\BlairRobot\\IdeaProjects\\robot2016\\build\\docs\\javadoc'
+-doctitle 'robot2016 1.0 API'
+-quiet 
+-windowtitle 'robot2016 1.0 API'
+'C:\\Users\\BlairRobot\\IdeaProjects\\robot2016\\src\\main\\java\\org\\usfirst\\frc\\team449\\robot\\OI2016.java'
+'C:\\Users\\BlairRobot\\IdeaProjects\\robot2016\\src\\main\\java\\org\\usfirst\\frc\\team449\\robot\\OIMap2016.java'
+'C:\\Users\\BlairRobot\\IdeaProjects\\robot2016\\src\\main\\java\\org\\usfirst\\frc\\team449\\robot\\Robot.java'
+'C:\\Users\\BlairRobot\\IdeaProjects\\robot2016\\src\\main\\java\\org\\usfirst\\frc\\team449\\robot\\Tester.java'
