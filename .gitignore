@@ -1,0 +1,23 @@
+## Binaries ##
+*.class
+
+## IntelliJ project files  ##
+*.iml
+*.iws
+*.ipr
+.idea
+out
+
+## eclipse project file ##
+.settings
+.classpath
+.project
+build
+
+## vim ##
+*~
+*.swp
+
+## Gradle ##
+.gradle
+build/
