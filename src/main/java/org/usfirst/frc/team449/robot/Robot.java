@@ -14,7 +14,6 @@ import org.usfirst.frc.team449.robot.mechanism.breach.BreachMap;
 import org.usfirst.frc.team449.robot.mechanism.breach.BreachSubsystem;
 import org.usfirst.frc.team449.robot.mechanism.intake.IntakeMap;
 import org.usfirst.frc.team449.robot.mechanism.intake.IntakeSubsystem;
-import org.usfirst.frc.team449.robot.oi.OISubsystem;
 
 import java.util.HashMap;
 import java.util.Set;
@@ -65,7 +64,7 @@ public class Robot extends IterativeRobot {
     /**
      * This is the robot's Operator Interface (OI)
      */
-    public static OI2016 oi;
+    public static OITwoStick oi;
 
     /**
      * This is the robot's  configuration map for autonomous period constants.
@@ -109,7 +108,7 @@ public class Robot extends IterativeRobot {
             cfg = MappedSubsystem.readConfig("/home/lvuser/cfg.json");
 
             System.out.println("Starting oi init");
-            oi = new OI2016(new OIMap2016(cfg));
+            oi = new OITwoStick(new OIMap2016(cfg));
             System.out.println("Starting drive init");
             drive = new TankDriveSubsystem(new TankDriveMap(cfg), oi);
             System.out.println("Starting intake init");
@@ -142,7 +141,7 @@ public class Robot extends IterativeRobot {
             for (StackTraceElement el : arr) {
                 s += "\n  " + el.toString();
             }
-            DriverStation.reportError(s, false);
+            DriverStation.reportError(s, true);
             e.printStackTrace();
             System.exit(1);
         }
