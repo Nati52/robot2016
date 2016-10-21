@@ -17,7 +17,7 @@ import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeUp;
 import org.usfirst.frc.team449.robot.mechanism.intake.commands.ToggleIgnoreIR;
 import org.usfirst.frc.team449.robot.oi.OISubsystem;
 
-public class OI2016 extends OISubsystem {
+public class OIGamepad extends OISubsystem {
     private OIMap2016 oiMap2016;
     private Joystick manualOverrides;
     private Joystick gamecube;
@@ -27,7 +27,7 @@ public class OI2016 extends OISubsystem {
             faceGoalRight, bpIntakeUp, bpIntakeDown, bpIntakeIn, bpIntakeOut, bpBreachChival, bpBreachPort, bpBreachClose,
             bpCameraToggle, zeroGyro;
 
-    public OI2016(OIMap2016 map) {
+    public OIGamepad(OIMap2016 map) {
         super(map);
 
         oiMap2016 = (OIMap2016) map;
