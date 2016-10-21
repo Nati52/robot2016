@@ -6,7 +6,7 @@ import org.usfirst.frc.team449.robot.oi.OIMap;
 /**
  * Created by BlairRobot on 2016-07-22.
  */
-public class OIMapTwoSticks extends OIMap {
+public class OIMapTwoStick extends OIMap {
     /**
      * USB port number of the main controller (gamepad)
      */
@@ -185,7 +185,7 @@ public class OIMapTwoSticks extends OIMap {
      */
     public double MAX_VALUE;
 
-    public OIMapTwoSticks(JSONObject json) {
+    public OIMapTwoStick(JSONObject json) {
         super(json);
     }
 }
