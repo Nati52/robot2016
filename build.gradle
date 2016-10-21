@@ -3,7 +3,6 @@ buildscript {
         mavenCentral()
         maven {
             name = "GradleRIO"
-//            name = "Jaci"
             url = "http://dev.imjac.in/maven"
         }
     }
@@ -17,14 +16,11 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'GradleRIO'
 
-sourceCompatibility = 1.8
-
 group 'org.usfirst.frc.team449.robot2016'
 version '1.0'
 
 gradlerio.robotClass = "org.usfirst.frc.team449.robot.Robot"   //The class for the main Robot Class. Used in manifest
 gradlerio.team = "449"
-//gradlerio.rioIP = "10.53.33.20" //Uncomment to specify the IP address of the RIO
 
 allprojects {
     tasks.withType(Javadoc).all { enabled = false }
@@ -60,7 +56,6 @@ task convertFiles << {
 
 gradlerio {
     deployers += [to: "/home/lvuser/cfg.json", from: './src/main/resources/cfg.json']
-//    deployers = ['/src/main/resources/cfg.json']
 }
 
 def robotManifest = {
@@ -72,8 +67,6 @@ jar {
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     manifest robotManifest
 }
-
-//task cfgDeploy()
 
 task genJavadoc(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
