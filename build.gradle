@@ -26,6 +26,9 @@ gradlerio.robotClass = "org.usfirst.frc.team449.robot.Robot"   //The class for t
 gradlerio.team = "449"
 //gradlerio.rioIP = "10.53.33.20" //Uncomment to specify the IP address of the RIO
 
+allprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+}
 
 repositories {
     mavenCentral()
