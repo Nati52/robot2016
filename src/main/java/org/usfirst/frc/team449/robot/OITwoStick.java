@@ -11,10 +11,13 @@ import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeIn;
 import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeOut;
 import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeUp;
 import org.usfirst.frc.team449.robot.oi.OISubsystem;
+import org.usfirst.frc.team449.robot.oi.components.SmoothedThrottle;
 
 public class OITwoStick extends OISubsystem {
     private Joystick leftStick;
+    private SmoothedThrottle leftThrottle;
     private Joystick rightStick;
+    private SmoothedThrottle rightThrottle;
     private Joystick buttonPad;
 
     private Button stow, chivald, port, intakeUp, intakeDown, intakeIn, intakeOut;
@@ -23,7 +26,9 @@ public class OITwoStick extends OISubsystem {
         super(map);
 
         leftStick = new Joystick(2);
+        leftThrottle = new SmoothedThrottle(leftStick, 1);
         rightStick = new Joystick(4);
+        rightThrottle = new SmoothedThrottle(rightStick, 1);
         buttonPad = new Joystick(1);
 
         // Breach buttons
@@ -49,38 +54,11 @@ public class OITwoStick extends OISubsystem {
     }
 
     /**
-     * <p>
-     * This is a throttle smoothing function used on all joystick input.
-     * </p>
-     * <p>
-     * <p>
-     * The smoothed value is calculated as the following
-     * </p>
-     * <p>
-     * sign * max / (1 - (deadband ^ power)) * (((input * sign) ^ power) -
-     * (deadband ^ power))
-     *
-     * @param input raw throttle value (from controller)
-     * @return smoothed throttle value (to send to motor cluster)
-     */
-    public double process(double input) {
-        int sign = (input < 0) ? -1 : 1; // get the sign of the input
-        input *= sign; // get the absolute value
-        // if in the deadband, return 0
-        if (input < 0.02) {
-            return 0;
-        }
-        return sign * (1 / (1 - Math.pow(0.02, 2)))
-                * (Math.pow(input, 2) - Math.pow(0.02, 2));
-    }
-
-    /**
      * @return the throttle of the left motor cluster
      */
     @Override
     public double getDriveAxisLeft() {
-        double ret = leftStick.getRawAxis(1);
-        return process(ret);
+        return leftThrottle.getValue();
     }
 
     /**
@@ -88,8 +66,7 @@ public class OITwoStick extends OISubsystem {
      */
     @Override
     public double getDriveAxisRight() {
-        double ret = rightStick.getRawAxis(1);
-        return process(ret);
+        return rightThrottle.getValue();
     }
 
     /**
