@@ -16,6 +16,7 @@ import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeOut;
 import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeUp;
 import org.usfirst.frc.team449.robot.mechanism.intake.commands.ToggleIgnoreIR;
 import org.usfirst.frc.team449.robot.oi.OISubsystem;
+import org.usfirst.frc.team449.robot.oi.components.SmoothedThrottle;
 
 public class OIGamepad extends OISubsystem {
     private OIMap2016 oiMap2016;
@@ -26,11 +27,12 @@ public class OIGamepad extends OISubsystem {
             breachCloseSecondary, cameraToggle, driveStraightVel, ignoreIR, togglePid, faceFront, faceBack, faceGoalLeft,
             faceGoalRight, bpIntakeUp, bpIntakeDown, bpIntakeIn, bpIntakeOut, bpBreachChival, bpBreachPort, bpBreachClose,
             bpCameraToggle, zeroGyro;
+    private SmoothedThrottle leftThrottle, rightThrottle;
 
     public OIGamepad(OIMap2016 map) {
         super(map);
 
-        oiMap2016 = (OIMap2016) map;
+        oiMap2016 = map;
 
         gamecube = new Joystick(map.MAIN_CONTROLLER);
         manualOverrides = new Joystick(map.MANUAL_OVERRIDES);
@@ -61,6 +63,8 @@ public class OIGamepad extends OISubsystem {
         bpBreachClose = new JoystickButton(buttonPad, map.BP_BREACH_CLOSE);
         bpCameraToggle = new JoystickButton(buttonPad, map.BP_CAMERA_TOGGLE);
         zeroGyro = new JoystickButton(gamecube, map.ZERO_GYRO);
+        leftThrottle = new SmoothedThrottle(gamecube, oiMap2016.LEFT_DRIVE_STICK);
+        rightThrottle = new SmoothedThrottle(gamecube, oiMap2016.RIGHT_DRIVE_STICK);
     }
 
     protected void mapButtons() {
@@ -100,38 +104,11 @@ public class OIGamepad extends OISubsystem {
     }
 
     /**
-     * <p>
-     * This is a throttle smoothing function used on all joystick input.
-     * </p>
-     * <p>
-     * <p>
-     * The smoothed value is calculated as the following
-     * </p>
-     * <p>
-     * sign * max / (1 - (deadband ^ power)) * (((input * sign) ^ power) -
-     * (deadband ^ power))
-     *
-     * @param input raw throttle value (from controller)
-     * @return smoothed throttle value (to send to motor cluster)
-     */
-    public double process(double input) {
-        int sign = (input < 0) ? -1 : 1; // get the sign of the input
-        input *= sign; // get the absolute value
-        // if in the deadband, return 0
-        if (input < oiMap2016.DEADBAND) {
-            return 0;
-        }
-        return sign * (oiMap2016.MAX_VALUE / (1 - Math.pow(oiMap2016.DEADBAND, oiMap2016.POWER)))
-                * (Math.pow(input, oiMap2016.POWER) - Math.pow(oiMap2016.DEADBAND, oiMap2016.POWER));
-    }
-
-    /**
      * @return the throttle of the left motor cluster
      */
     @Override
     public double getDriveAxisLeft() {
-        double ret = gamecube.getRawAxis(oiMap2016.LEFT_DRIVE_STICK);
-        return process(ret);
+        return leftThrottle.getValue();
     }
 
     /**
@@ -139,8 +116,7 @@ public class OIGamepad extends OISubsystem {
      */
     @Override
     public double getDriveAxisRight() {
-        double ret = gamecube.getRawAxis(oiMap2016.RIGHT_DRIVE_STICK);
-        return process(ret);
+        return rightThrottle.getValue();
     }
 
     /**
