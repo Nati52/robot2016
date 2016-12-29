@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import maps.org.usfirst.frc.team449.robot.RobotMap2016;
 import org.json.JSONObject;
 import org.usfirst.frc.team449.robot.drive.DriveSubsystem;
 import org.usfirst.frc.team449.robot.drive.tank.TankDriveMap;
@@ -26,9 +27,9 @@ public class Robot extends IterativeRobot {
     private HashMap<DigitalInput, Command> autos;
 
     /**
-     * The JSONObject containing the constants from cfg.json for this robot
+     * The Message containing the constants from map.cfg for this robot
      */
-    private static JSONObject cfg;
+    private static maps.org.usfirst.frc.team449.robot.RobotMap2016.Robot2016 cfg;
 
     /**
      * This is the robot's drive subsystem. Any command that uses this
@@ -74,16 +75,16 @@ public class Robot extends IterativeRobot {
         System.out.println("Starting robotInit");
         try {
             System.out.println("Starting cfg init");
-            cfg = MappedSubsystem.readConfig("/home/lvuser/cfg.json");
+            MappedSubsystem.readConfig("/home/lvuser/map.cfg", cfg);
 
             System.out.println("Starting oi init");
-            oi = new OITwoStick(new OIMap2016(cfg));
+            oi = new OITwoStick(new OIMap2016(cfg.getOi()));
             System.out.println("Starting drive init");
-            drive = new TankDriveSubsystem(new TankDriveMap(cfg), oi);
+            drive = new TankDriveSubsystem(new TankDriveMap(cfg.getDrive()), oi);
             System.out.println("Starting intake init");
-            intake = new IntakeSubsystem(new IntakeMap(cfg));
+            intake = new IntakeSubsystem(new IntakeMap(cfg.getIntake()));
             System.out.println("Starting breach init");
-            breach = new BreachSubsystem(new BreachMap(cfg));
+            breach = new BreachSubsystem(new BreachMap(cfg.getBreach()));
 
         } catch (Exception e) {
             String s = e.getMessage();

@@ -1,0 +1,15 @@
+syntax = "proto2";
+import "org/usfirst/frc/team449/robot/OI2016.proto";
+import "org/usfirst/frc/team449/robot/drive/tank/TankDrive.proto";
+import "org/usfirst/frc/team449/robot/mechanism/intake/Intake.proto";
+import "org/usfirst/frc/team449/robot/mechanism/breach/Breach.proto";
+
+option java_package = "maps.org.usfirst.frc.team449.robot";
+option java_outer_classname = "RobotMap2016";
+
+message Robot2016{
+    required OI2016 oi = 1;
+    required TankDrive drive = 2;
+    required Intake intake = 3;
+    required Breach breach = 4;
+}

@@ -1,5 +1,8 @@
 package org.usfirst.frc.team449.robot;
 
+import com.google.protobuf.Message;
+import com.google.protobuf.TextFormat;
+import maps.org.usfirst.frc.team449.robot.RobotMap2016;
 import org.json.JSONObject;
 import org.usfirst.frc.team449.robot.drive.tank.TankDriveMap;
 import org.usfirst.frc.team449.robot.mechanism.breach.BreachMap;
@@ -16,22 +19,32 @@ import java.nio.file.Files;
  */
 public class Tester {
     /**
-     * Instantiate all maps and print an unescaped and escaped version of the contents of cfg.json
+     * Instantiate all maps and print an unescaped and escaped version of the contents of map.cfg
      */
     public static void main(String[] args) {
-        JSONObject jo = null;
+        Message map = null;
+        maps.org.usfirst.frc.team449.robot.RobotMap2016.Robot2016 r16Map = null;
+        Message.Builder builder = maps.org.usfirst.frc.team449.robot.RobotMap2016.Robot2016.newBuilder();
         try {
-            jo = new JSONObject(new String(Files.readAllBytes((new File("src/main/resources/cfg.json")).toPath()),
-                    StandardCharsets.UTF_8));
+            TextFormat.getParser().merge(new String(Files.readAllBytes((new File("src/main/resources/cfg.json")).toPath()),
+                    StandardCharsets.UTF_8), builder);
+            map = builder.build();
         } catch (IOException e) {
+            System.out.println("IO error!");
             e.printStackTrace(); // if this happens, we're fucked
         }
-        TankDriveMap tdm = new TankDriveMap(jo);
-        IntakeMap im = new IntakeMap(jo);
-        BreachMap bm = new BreachMap(jo);
-        OIMap2016 oim = new OIMap2016(jo);
+        try {
+            r16Map = (RobotMap2016.Robot2016) map;
+        } catch (ClassCastException e){
+            System.out.println("Cast error!");
+            e.printStackTrace();
+        }
+        TankDriveMap tdm = new TankDriveMap(r16Map.getDrive());
+        IntakeMap im = new IntakeMap(r16Map.getIntake());
+        BreachMap bm = new BreachMap(r16Map.getBreach());
+        OIMap2016 oim = new OIMap2016(r16Map.getOi());
 //		AutoMap am = new AutoMap(jo);
-        String s = jo.toString();
+        String s = TextFormat.printToString(map);
         System.out.println(s);
         System.out.println(s.replaceAll("(?<!\\\\)\"", "\\\\\""));
     }
