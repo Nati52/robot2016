@@ -1,5 +1,6 @@
 package org.usfirst.frc.team449.robot;
 
+import com.google.protobuf.Message;
 import org.json.JSONObject;
 import org.usfirst.frc.team449.robot.oi.OIMap;
 
@@ -185,7 +186,40 @@ public class OIMap2016 extends OIMap {
      */
     public double MAX_VALUE;
 
-    public OIMap2016(JSONObject json) {
-        super(json);
+    public OIMap2016(maps.org.usfirst.frc.team449.robot.OIMap2016.OI2016 message) {
+        super(message.getSuper());
+        BP_BREACH_CHIVAL = message.getBpBreachChival();
+        BP_BREACH_CLOSE = message.getBpBreachClose();
+        BP_BREACH_PORTCULLIS = message.getBpBreachPortcullis();
+        BP_CAMERA_TOGGLE = message.getBpCameraToggle();
+        BP_INTAKE_DOWN = message.getIntakeDown();
+        BP_INTAKE_IN = message.getBpIntakeIn();
+        BP_INTAKE_OUT = message.getBpIntakeOut();
+        BP_INTAKE_UP = message.getBpIntakeUp();
+        BREACH_CHIVAL = message.getBreachChival();
+        BREACH_CLOSE_PRIMARY = message.getBreachClosePrimary();
+        BREACH_CLOSE_SECONDARY = message.getBreachCloseSecondary();
+        BREACH_PORTCULLIS = message.getBreachPortcullis();
+        BUTTON_PAD = message.getButtonPad();
+        CAMERA_TOGGLE = message.getCameraToggle();
+        DEADBAND = message.getDeadband();
+        DRIVE_STRAIGHT = message.getDriveStraight();
+        FACE_BACK = message.getFaceBack();
+        FACE_FRONT = message.getFaceFront();
+        FACE_LEFT_GOAL = message.getFaceLeftGoal();
+        FACE_RIGHT_GOAL = message.getFaceRightGoal();
+        IGNORE_IR = message.getIgnoreIr();
+        INTAKE_DOWN = message.getIntakeDown();
+        INTAKE_IN = message.getIntakeIn();
+        INTAKE_OUT = message.getIntakeOut();
+        INTAKE_UP = message.getIntakeUp();
+        LEFT_DRIVE_STICK = message.getLeftDriveStick();
+        MAIN_CONTROLLER = message.getMainController();
+        MANUAL_OVERRIDES = message.getManualOverrides();
+        MAX_VALUE = message.getMaxValue();
+        POWER = message.getPower();
+        RIGHT_DRIVE_STICK = message.getRightDriveStick();
+        TOGGLE_PID = message.getTogglePid();
+        ZERO_GYRO = message.getZeroGyro();
     }
 }
