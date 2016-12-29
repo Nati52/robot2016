@@ -190,7 +190,7 @@ public class OIMap2016 extends OIMap {
         BP_BREACH_CLOSE = message.getBpBreachClose();
         BP_BREACH_PORTCULLIS = message.getBpBreachPortcullis();
         BP_CAMERA_TOGGLE = message.getBpCameraToggle();
-        BP_INTAKE_DOWN = message.getIntakeDown();
+        BP_INTAKE_DOWN = message.getBpIntakeDown();
         BP_INTAKE_IN = message.getBpIntakeIn();
         BP_INTAKE_OUT = message.getBpIntakeOut();
         BP_INTAKE_UP = message.getBpIntakeUp();

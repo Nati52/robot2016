@@ -132,7 +132,7 @@ message OI2016{
      * Controller port number of the intake down button on the
      * button array
      */
-    required int32 BP_INTAKE_DOWN = 24;
+    required int32 bp_intake_down = 24;
 
     /**
      * Controller port number of the breach chivald button on the
