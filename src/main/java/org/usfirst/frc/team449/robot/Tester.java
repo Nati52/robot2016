@@ -26,7 +26,7 @@ public class Tester {
         maps.org.usfirst.frc.team449.robot.RobotMap2016.Robot2016 r16Map = null;
         Message.Builder builder = maps.org.usfirst.frc.team449.robot.RobotMap2016.Robot2016.newBuilder();
         try {
-            TextFormat.getParser().merge(new String(Files.readAllBytes((new File("src/main/resources/cfg.json")).toPath()),
+            TextFormat.getParser().merge(new String(Files.readAllBytes((new File("src/main/resources/map.cfg")).toPath()),
                     StandardCharsets.UTF_8), builder);
             map = builder.build();
         } catch (IOException e) {
