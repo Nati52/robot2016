@@ -1,0 +1,183 @@
+syntax = "proto2";
+
+option java_package = "maps.org.usfirst.frc.team449.robot";
+option java_outer_classname = "OIMap2016";
+
+message OI2016{
+    /**
+     * Throttle deadband value
+     */
+    required double DEADBAND = 1;
+
+    /**
+     * Throttle power value
+     */
+    required double POWER = 2;
+
+    /**
+     * Throttle maxout value
+     */
+    required double MAX_VALUE = 3;
+    /**
+     * USB port number of the main controller (gamepad)
+     */
+    required int32 MAIN_CONTROLLER = 4;
+
+    /**
+     * USB port number of the manual overrides controller
+     * (attack joystick)
+     */
+    required int32 MANUAL_OVERRIDES = 5;
+
+    /**
+     * USB port number of the button array
+     */
+    required int32 BUTTON_PAD = 6;
+
+    /**
+     * Controller port number of the left drive throttle
+     */
+    required int32 LEFT_DRIVE_STICK = 7;
+
+    /**
+     * Controller port number of the right drive throttle
+     */
+    required int32 RIGHT_DRIVE_STICK = 8;
+
+    /**
+     * Controller port number of the int32ake in button
+     */
+    required int32 INTAKE_IN = 9;
+
+    /**
+     * Controller port number of the intake out button
+     */
+    required int32 INTAKE_OUT = 10;
+
+    /**
+     * Controller port number of the intake up button
+     */
+    required int32 INTAKE_UP = 11;
+
+    /**
+     * Controller port number of the intake down button
+     */
+    required int32 INTAKE_DOWN = 12;
+
+    /**
+     * Controller port number of the breach chivald (middle)
+     * button
+     */
+    required int32 BREACH_CHIVAL = 13;
+
+    /**
+     * Controller port number of the breach portcullis (down)
+     * button
+     */
+    required int32 BREACH_PORTCULLIS = 14;
+
+    /**
+     * Controller port number of the breach close (up)
+     * button on the gamepad
+     */
+    required int32 BREACH_CLOSE_PRIMARY = 15;
+
+    /**
+     * Controller port number of the breach close (up)
+     * button on the attack joystick
+     */
+    required int32 BREACH_CLOSE_SECONDARY = 16;
+
+    /**
+     * Controller port number of the camera toggle button
+     */
+    required int32 CAMERA_TOGGLE = 17;
+
+    /**
+     * Controller port number of the drive straight button
+     */
+    required int32 DRIVE_STRAIGHT = 18;
+
+    /**
+     * Controller port number of the ignore IR button
+     */
+    required int32 IGNORE_IR = 19;
+
+    /**
+     * Controller port number of the toggle PID-aware button
+     */
+    required int32 TOGGLE_PID = 20;
+
+    /**
+     * Controller port number of the intake out button on the
+     * button array
+     */
+    required int32 BP_INTAKE_OUT = 21;
+
+    /**
+     * Controller port number of the intake in button on the
+     * button array
+     */
+    required int32 BP_INTAKE_IN = 22;
+
+    /**
+     * Controller port number of the intake up button on the
+     * button array
+     */
+    required int32 BP_INTAKE_UP = 23;
+
+    /**
+     * Controller port number of the intake down button on the
+     * button array
+     */
+    required int32 BP_INTAKE_DOWN = 24;
+
+    /**
+     * Controller port number of the breach chivald button on the
+     * button array
+     */
+    required int32 BP_BREACH_CHIVAL = 25;
+
+    /**
+     * Controller port number of the breach portcullis button on the
+     * button array
+     */
+    required int32 BP_BREACH_PORTCULLIS = 26;
+
+    /**
+     * Controller port number of the breach close button on the
+     * button array
+     */
+    required int32 BP_BREACH_CLOSE = 27;
+
+    /**
+     * Controller port number of the camera toggle button on the
+     * button array
+     */
+    required int32 BP_CAMERA_TOGGLE = 28;
+
+    /**
+     * Controller port number of the AHRS zeroing button
+     */
+    required int32 ZERO_GYRO = 29;
+
+    /**
+     * Controller port number of the face front button
+     */
+    required int32 FACE_FRONT = 30;
+
+    /**
+     * Controller port number of the face back button
+     */
+    required int32 FACE_BACK = 31;
+
+    /**
+     * Controller port number of the face left goal button
+     */
+    required int32 FACE_LEFT_GOAL = 32;
+
+    /**
+     * Controller port number of the face right goal button
+     */
+    required int32 FACE_RIGHT_GOAL = 33;
+}
