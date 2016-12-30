@@ -3,7 +3,6 @@ package org.usfirst.frc.team449.robot;
 import com.google.protobuf.Message;
 import com.google.protobuf.TextFormat;
 import maps.org.usfirst.frc.team449.robot.RobotMap2016;
-import org.json.JSONObject;
 import org.usfirst.frc.team449.robot.drive.tank.TankDriveMap;
 import org.usfirst.frc.team449.robot.mechanism.breach.BreachMap;
 import org.usfirst.frc.team449.robot.mechanism.intake.IntakeMap;
@@ -14,12 +13,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 /**
- * This tests cfg.json locally by instantiating all the maps and printing an
- * unescaped and an escaped version of the content of the file.
+ * This tests map.cfg locally by instantiating all the maps and printing the content of the file.
  */
 public class Tester {
     /**
-     * Instantiate all maps and print an unescaped and escaped version of the contents of map.cfg
+     * Instantiate all maps and print the contents of map.cfg
      */
     public static void main(String[] args) {
         Message map = null;
@@ -46,6 +44,5 @@ public class Tester {
 //		AutoMap am = new AutoMap(jo);
         String s = TextFormat.printToString(map);
         System.out.println(s);
-        System.out.println(s.replaceAll("(?<!\\\\)\"", "\\\\\""));
     }
 }

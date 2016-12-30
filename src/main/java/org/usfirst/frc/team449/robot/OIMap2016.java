@@ -3,7 +3,7 @@ package org.usfirst.frc.team449.robot;
 import org.usfirst.frc.team449.robot.oi.OIMap;
 
 /**
- * Created by BlairRobot on 2016-07-22.
+ * The map of the controller configuration for the 2016 robot.
  */
 public class OIMap2016 extends OIMap {
     /**
