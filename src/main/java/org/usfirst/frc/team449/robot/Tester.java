@@ -1,6 +1,8 @@
 package org.usfirst.frc.team449.robot;
 
-import org.json.JSONObject;
+import com.google.protobuf.Message;
+import com.google.protobuf.TextFormat;
+import maps.org.usfirst.frc.team449.robot.RobotMap2016;
 import org.usfirst.frc.team449.robot.drive.tank.TankDriveMap;
 import org.usfirst.frc.team449.robot.mechanism.breach.BreachMap;
 import org.usfirst.frc.team449.robot.mechanism.intake.IntakeMap;
@@ -11,28 +13,18 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 /**
- * This tests cfg.json locally by instantiating all the maps and printing an
- * unescaped and an escaped version of the content of the file.
+ * This tests map.cfg locally by instantiating all the maps and printing the content of the file.
  */
 public class Tester {
-    /**
-     * Instantiate all maps and print an unescaped and escaped version of the contents of cfg.json
-     */
-    public static void main(String[] args) {
-        JSONObject jo = null;
-        try {
-            jo = new JSONObject(new String(Files.readAllBytes((new File("src/main/resources/cfg.json")).toPath()),
-                    StandardCharsets.UTF_8));
-        } catch (IOException e) {
-            e.printStackTrace(); // if this happens, we're fucked
-        }
-        TankDriveMap tdm = new TankDriveMap(jo);
-        IntakeMap im = new IntakeMap(jo);
-        BreachMap bm = new BreachMap(jo);
-        OIMap2016 oim = new OIMap2016(jo);
-//		AutoMap am = new AutoMap(jo);
-        String s = jo.toString();
-        System.out.println(s);
-        System.out.println(s.replaceAll("(?<!\\\\)\"", "\\\\\""));
-    }
+	/**
+	 * Instantiate all maps and print the contents of map.cfg
+	 */
+	public static void main(String[] args) throws IOException {
+		RobotMap2016.Robot2016 r16Map = (RobotMap2016.Robot2016) MappedSubsystem.readConfig("C:\\Users\\ryant\\Downloads\\map.cfg", RobotMap2016.Robot2016.newBuilder());   // TODO replace path w/ relative path
+		TankDriveMap tdm = new TankDriveMap(r16Map.getDrive());
+		IntakeMap im = new IntakeMap(r16Map.getIntake());
+		BreachMap bm = new BreachMap(r16Map.getBreach());
+		OIMap2016 oim = new OIMap2016(r16Map.getOi());
+		System.out.println(r16Map);
+	}
 }
