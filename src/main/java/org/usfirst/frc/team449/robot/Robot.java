@@ -8,11 +8,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import maps.org.usfirst.frc.team449.robot.RobotMap2016;
 import org.usfirst.frc.team449.robot.drive.DriveSubsystem;
-import org.usfirst.frc.team449.robot.drive.tank.TankDriveMap;
 import org.usfirst.frc.team449.robot.drive.tank.TankDriveSubsystem;
-import org.usfirst.frc.team449.robot.mechanism.breach.BreachMap;
 import org.usfirst.frc.team449.robot.mechanism.breach.BreachSubsystem;
-import org.usfirst.frc.team449.robot.mechanism.intake.IntakeMap;
 import org.usfirst.frc.team449.robot.mechanism.intake.IntakeSubsystem;
 
 import java.util.HashMap;
@@ -77,13 +74,13 @@ public class Robot extends IterativeRobot {
 			cfg = (RobotMap2016.Robot2016) MappedSubsystem.readConfig("/home/lvuser/map.cfg", RobotMap2016.Robot2016.newBuilder());
 
 			System.out.println("Starting oi init");
-			oi = new OITwoStick(new OIMap2016(cfg.getOi()));
+			oi = new OITwoStick(cfg.getOi());
 			System.out.println("Starting drive init");
-			drive = new TankDriveSubsystem(new TankDriveMap(cfg.getDrive()), oi);
+			drive = new TankDriveSubsystem(cfg.getDrive(), oi);
 			System.out.println("Starting intake init");
-			intake = new IntakeSubsystem(new IntakeMap(cfg.getIntake()));
+			intake = new IntakeSubsystem(cfg.getIntake());
 			System.out.println("Starting breach init");
-			breach = new BreachSubsystem(new BreachMap(cfg.getBreach()));
+			breach = new BreachSubsystem(cfg.getBreach());
 
 		} catch (Exception e) {
 			String s = e.getMessage();

@@ -22,8 +22,8 @@ public class OITwoStick extends OISubsystem {
 
 	private Button stow, chivald, port, intakeUp, intakeDown, intakeIn, intakeOut;
 
-	public OITwoStick(OIMap2016 map) {
-		super(map);
+	public OITwoStick(maps.org.usfirst.frc.team449.robot.oi.OIMap2016.OI2016 map) {
+		super(map.getOi());
 
 		leftStick = new Joystick(2);
 		leftThrottle = new SmoothedThrottle(leftStick, 1);

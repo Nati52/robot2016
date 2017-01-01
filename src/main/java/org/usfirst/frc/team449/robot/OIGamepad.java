@@ -10,16 +10,12 @@ import org.usfirst.frc.team449.robot.drive.tank.commands.ZeroGyro;
 import org.usfirst.frc.team449.robot.mechanism.breach.commands.BreachChivald;
 import org.usfirst.frc.team449.robot.mechanism.breach.commands.BreachPortcullis;
 import org.usfirst.frc.team449.robot.mechanism.breach.commands.BreachStowed;
-import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeDown;
-import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeIn;
-import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeOut;
-import org.usfirst.frc.team449.robot.mechanism.intake.commands.IntakeUp;
-import org.usfirst.frc.team449.robot.mechanism.intake.commands.ToggleIgnoreIR;
+import org.usfirst.frc.team449.robot.mechanism.intake.commands.*;
 import org.usfirst.frc.team449.robot.oi.OISubsystem;
 import org.usfirst.frc.team449.robot.oi.components.SmoothedThrottle;
 
 public class OIGamepad extends OISubsystem {
-	private OIMap2016 oiMap2016;
+	private maps.org.usfirst.frc.team449.robot.oi.OIMap2016.OI2016 oiMap2016;
 	private Joystick manualOverrides;
 	private Joystick gamecube;
 	private Joystick buttonPad;
@@ -31,42 +27,42 @@ public class OIGamepad extends OISubsystem {
 			bpCameraToggle, zeroGyro;
 	private SmoothedThrottle leftThrottle, rightThrottle;
 
-	public OIGamepad(OIMap2016 map) {
-		super(map);
+	public OIGamepad(maps.org.usfirst.frc.team449.robot.oi.OIMap2016.OI2016 map) {
+		super(map.getOi());
 
 		oiMap2016 = map;
 
-		gamecube = new Joystick(map.MAIN_CONTROLLER);
-		manualOverrides = new Joystick(map.MANUAL_OVERRIDES);
-		buttonPad = new Joystick(map.BUTTON_PAD);
+		gamecube = new Joystick(map.getMainController());
+		manualOverrides = new Joystick(map.getManualOverrides());
+		buttonPad = new Joystick(map.getButtonPad());
 
-		intakeIn = new JoystickButton(gamecube, map.INTAKE_IN);
-		intakeOut = new JoystickButton(gamecube, map.INTAKE_OUT);
-		intakeUp = new JoystickButton(gamecube, map.INTAKE_UP);
-		intakeDown = new JoystickButton(gamecube, map.INTAKE_DOWN);
-		breachChival = new JoystickButton(gamecube, map.BREACH_CHIVAL);
-		breachPortcullis = new JoystickButton(gamecube, map.BREACH_PORTCULLIS);
-		breachClosePrimary = new JoystickButton(gamecube, map.BREACH_CLOSE_PRIMARY);
-		breachCloseSecondary = new JoystickButton(manualOverrides, map.BREACH_CLOSE_SECONDARY);
-		cameraToggle = new JoystickButton(gamecube, map.CAMERA_TOGGLE);
-		driveStraightVel = new JoystickButton(gamecube, map.DRIVE_STRAIGHT);
-		ignoreIR = new JoystickButton(manualOverrides, map.IGNORE_IR);
-		togglePid = new JoystickButton(manualOverrides, map.TOGGLE_PID);
-		faceFront = new JoystickButton(manualOverrides, map.FACE_FRONT);
-		faceBack = new JoystickButton(manualOverrides, map.FACE_BACK);
-		faceGoalLeft = new JoystickButton(manualOverrides, map.FACE_LEFT_GOAL);
-		faceGoalRight = new JoystickButton(manualOverrides, map.FACE_RIGHT_GOAL);
-		bpIntakeDown = new JoystickButton(buttonPad, map.BP_INTAKE_DOWN);
-		bpIntakeUp = new JoystickButton(buttonPad, map.BP_INTAKE_UP);
-		bpIntakeIn = new JoystickButton(buttonPad, map.BP_INTAKE_IN);
-		bpIntakeOut = new JoystickButton(buttonPad, map.BP_INTAKE_OUT);
-		bpBreachChival = new JoystickButton(buttonPad, map.BP_BREACH_CHIVAL);
-		bpBreachPort = new JoystickButton(buttonPad, map.BP_BREACH_PORTCULLIS);
-		bpBreachClose = new JoystickButton(buttonPad, map.BP_BREACH_CLOSE);
-		bpCameraToggle = new JoystickButton(buttonPad, map.BP_CAMERA_TOGGLE);
-		zeroGyro = new JoystickButton(gamecube, map.ZERO_GYRO);
-		leftThrottle = new SmoothedThrottle(gamecube, oiMap2016.LEFT_DRIVE_STICK);
-		rightThrottle = new SmoothedThrottle(gamecube, oiMap2016.RIGHT_DRIVE_STICK);
+		intakeIn = new JoystickButton(gamecube, map.getIntakeIn());
+		intakeOut = new JoystickButton(gamecube, map.getIntakeOut());
+		intakeUp = new JoystickButton(gamecube, map.getIntakeUp());
+		intakeDown = new JoystickButton(gamecube, map.getIntakeDown());
+		breachChival = new JoystickButton(gamecube, map.getBreachChival());
+		breachPortcullis = new JoystickButton(gamecube, map.getBreachPortcullis());
+		breachClosePrimary = new JoystickButton(gamecube, map.getBreachClosePrimary());
+		breachCloseSecondary = new JoystickButton(manualOverrides, map.getBreachCloseSecondary());
+		cameraToggle = new JoystickButton(gamecube, map.getCameraToggle());
+		driveStraightVel = new JoystickButton(gamecube, map.getDriveStraight());
+		ignoreIR = new JoystickButton(manualOverrides, map.getIgnoreIr());
+		togglePid = new JoystickButton(manualOverrides, map.getTogglePid());
+		faceFront = new JoystickButton(manualOverrides, map.getFaceFront());
+		faceBack = new JoystickButton(manualOverrides, map.getFaceBack());
+		faceGoalLeft = new JoystickButton(manualOverrides, map.getFaceLeftGoal());
+		faceGoalRight = new JoystickButton(manualOverrides, map.getFaceRightGoal());
+		bpIntakeDown = new JoystickButton(buttonPad, map.getBpIntakeDown());
+		bpIntakeUp = new JoystickButton(buttonPad, map.getBpIntakeUp());
+		bpIntakeIn = new JoystickButton(buttonPad, map.getBpIntakeIn());
+		bpIntakeOut = new JoystickButton(buttonPad, map.getBpIntakeOut());
+		bpBreachChival = new JoystickButton(buttonPad, map.getBpBreachChival());
+		bpBreachPort = new JoystickButton(buttonPad, map.getBpBreachPortcullis());
+		bpBreachClose = new JoystickButton(buttonPad, map.getBpBreachClose());
+		bpCameraToggle = new JoystickButton(buttonPad, map.getBpCameraToggle());
+		zeroGyro = new JoystickButton(gamecube, map.getZeroGyro());
+		leftThrottle = new SmoothedThrottle(gamecube, oiMap2016.getLeftDriveStick());
+		rightThrottle = new SmoothedThrottle(gamecube, oiMap2016.getRightDriveStick());
 	}
 
 	protected void mapButtons() {
@@ -127,7 +123,7 @@ public class OIGamepad extends OISubsystem {
 	 * straight based on right stick throttle)
 	 */
 	public boolean isDriveStraightMode() {
-		return gamecube.getRawButton(oiMap2016.DRIVE_STRAIGHT);
+		return gamecube.getRawButton(oiMap2016.getDriveStraight());
 	}
 
 
