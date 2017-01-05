@@ -24,6 +24,7 @@ public class OITwoStick extends OISubsystem {
 
 	public OITwoStick(maps.org.usfirst.frc.team449.robot.oi.OIMap2016.OI2016 map) {
 		super(map.getOi());
+		this.map = map;
 
 		leftStick = new Joystick(2);
 		leftThrottle = new SmoothedThrottle(leftStick, 1);

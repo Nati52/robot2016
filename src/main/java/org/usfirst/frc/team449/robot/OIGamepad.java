@@ -29,6 +29,7 @@ public class OIGamepad extends OISubsystem {
 
 	public OIGamepad(maps.org.usfirst.frc.team449.robot.oi.OIMap2016.OI2016 map) {
 		super(map.getOi());
+		this.map = map;
 
 		oiMap2016 = map;
 
