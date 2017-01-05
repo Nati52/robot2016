@@ -37,20 +37,20 @@ public class OITwoStick extends OISubsystem {
 		port = new JoystickButton(buttonPad, 4);
 
 		// Intake
-		intakeUp = new JoystickButton(buttonPad, 6);
-		intakeDown = new JoystickButton(buttonPad, 7);
-		intakeIn = new JoystickButton(buttonPad, 8);
-		intakeOut = new JoystickButton(buttonPad, 9);
+//		intakeUp = new JoystickButton(buttonPad, 6);
+//		intakeDown = new JoystickButton(buttonPad, 7);
+//		intakeIn = new JoystickButton(buttonPad, 8);
+//		intakeOut = new JoystickButton(buttonPad, 9);
 	}
 
 	protected void mapButtons() {
 		stow.whenPressed(new BreachStowed(Robot.breach));
 		chivald.whenPressed(new BreachChivald(Robot.breach));
 		port.whenPressed(new BreachPortcullis(Robot.breach));
-		intakeUp.whenPressed(new IntakeUp(Robot.intake));
-		intakeDown.whenPressed(new IntakeDown(Robot.intake));
-		intakeIn.toggleWhenPressed(new IntakeIn(Robot.intake));
-		intakeOut.whileHeld(new IntakeOut(Robot.intake));
+//		intakeUp.whenPressed(new IntakeUp(Robot.intake));
+//		intakeDown.whenPressed(new IntakeDown(Robot.intake));
+//		intakeIn.toggleWhenPressed(new IntakeIn(Robot.intake));
+//		intakeOut.whileHeld(new IntakeOut(Robot.intake));
 	}
 
 	/**

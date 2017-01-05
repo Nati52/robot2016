@@ -78,7 +78,7 @@ public class Robot extends IterativeRobot {
 			System.out.println("Starting drive init");
 			drive = new TankDriveSubsystem(cfg.getDrive(), oi);
 			System.out.println("Starting intake init");
-			intake = new IntakeSubsystem(cfg.getIntake());
+//			intake = new IntakeSubsystem(cfg.getIntake());
 			System.out.println("Starting breach init");
 			breach = new BreachSubsystem(cfg.getBreach());
 
