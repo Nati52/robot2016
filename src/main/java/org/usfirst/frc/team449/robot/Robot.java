@@ -80,10 +80,10 @@ public class Robot extends IterativeRobot {
             oi = new OITwoStick(new OIMap2016(cfg));
             System.out.println("Starting drive init");
             drive = new TankDriveSubsystem(new TankDriveMap(cfg), oi);
-            System.out.println("Starting intake init");
-            intake = new IntakeSubsystem(new IntakeMap(cfg));
-            System.out.println("Starting breach init");
-            breach = new BreachSubsystem(new BreachMap(cfg));
+            //System.out.println("Starting intake init");
+            //intake = new IntakeSubsystem(new IntakeMap(cfg));
+            //System.out.println("Starting breach init");
+            //breach = new BreachSubsystem(new BreachMap(cfg));
 
         } catch (Exception e) {
             String s = e.getMessage();

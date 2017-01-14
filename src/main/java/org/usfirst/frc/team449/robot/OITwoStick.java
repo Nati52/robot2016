@@ -41,16 +41,19 @@ public class OITwoStick extends OISubsystem {
         intakeDown = new JoystickButton(buttonPad, 7);
         intakeIn = new JoystickButton(buttonPad, 8);
         intakeOut = new JoystickButton(buttonPad, 9);
+
     }
 
     protected void mapButtons() {
-        stow.whenPressed(new BreachStowed(Robot.breach));
-        chivald.whenPressed(new BreachChivald(Robot.breach));
-        port.whenPressed(new BreachPortcullis(Robot.breach));
+        //stow.whenPressed(new BreachStowed(Robot.breach));
+        //chivald.whenPressed(new BreachChivald(Robot.breach));
+        //port.whenPressed(new BreachPortcullis(Robot.breach));
+        /*
         intakeUp.whenPressed(new IntakeUp(Robot.intake));
         intakeDown.whenPressed(new IntakeDown(Robot.intake));
         intakeIn.toggleWhenPressed(new IntakeIn(Robot.intake));
         intakeOut.whileHeld(new IntakeOut(Robot.intake));
+        */
     }
 
     /**
@@ -70,7 +73,7 @@ public class OITwoStick extends OISubsystem {
     }
 
     /**
-     * @return whether the driver is enabling drive straight mode (driving
+     * @return whether the driver is enabling drive straight mode (drivinggit
      * straight based on right stick throttle)
      */
     public boolean isDriveStraightMode() {
